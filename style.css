@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 20vw 75vw 5vw;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header header header"
+                        "nav main main"
+                        "footer footer footer";
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.overlay{
+    content: "";
+    background: rgba(101, 109, 93, 0.4);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+header, nav, main, footer{
+    display: flex;
+    overflow-x: hidden;
+}
+
+header{
+    grid-area: header;
+    background:  #232323;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7rem 0;
+    z-index: 2;
+}
+
+header h1{
+    color: #ffeda3;
+    letter-spacing: 4px;
+}
+
+nav, main{
+    padding-left: 0.5rem;
+    padding-top: 0.8rem;
+}
+
+.task, .project{
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    color: #ffeda3
+}
+
+.task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 2rem;
+    border-bottom: 2px solid;
+    padding-bottom: 0.4rem;
+    
+}
+
+
+nav{
+    grid-area: nav;
+    background: #39a9cb;
+    flex-direction: column;
+}
+
+#addProject{
+    width: 88%;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-top: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    height: 2rem;
+    border: none;
+    box-shadow:  1px 1px 7px 1px;
+    
+}
+
+#navigation ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.nav-head, .tasks-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-head span, .tasks-head span{
+    margin-right: 2rem;
+    padding: 0rem 1rem;
+    font-size: 1.5rem;
+    border: 4px solid #232323;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    cursor: pointer;
+    color: #ffeda3;
+}
+
+.nav-head span:hover, .tasks-head span:hover{
+    background: #232323;
+    border: 4px solid #ffeda3;
+    color:  #ffeda3;
+}
+
+nav ul, main ul{
+    list-style: none;
+    padding-bottom: 1rem;
+}
+
+nav ul li, main ul li{
+    font-size: 1.2rem;
+    
+}
+
+main ul li, .project{
+    cursor: pointer;
+}
+
+.completed{
+    z-index: 2;
+    opacity: 0.5;
+}
+
+.project-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.project-container span{
+    margin-right: 2rem;
+    font-size: 1.2rem;
+    padding: 0.1rem 0.4rem;
+    font-weight: 700;
+    border: none;
+}
+
+
+#priority{
+    outline: none;
+}
+
+.details{
+    display: flex;
+    width: 19vw;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.delete{
+    font-size: 1.2rem;
+    /*border: 2px solid;*/
+    padding: 0 0.8rem;
+    color: rgb(255, 0, 0);
+    position: relative;
+    top: 0.1rem;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.delete:hover{
+    background: rgb(255, 0, 64);
+    color: #fff;
+}
+
+.details select{
+    height: 1.6rem;
+    position: relative;
+    top: 2px;
+}
+
+.fill-details{
+    overflow: hidden;
+    z-index: 1;
+    display: none;
+    background: rgb(190, 184, 179);
+    position: absolute;
+    /*height: 40%;*/
+    top: 20%;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+    box-shadow:  1px 1px 10px 1px;
+    
+}
+
+.fill-details form{
+   height: 100%;
+   display: grid;
+   justify-items: center;
+   align-items: center;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: 1fr 1fr;
+   grid-template-areas: "titleInput dateInput"
+                        "submitTask submitTask";
+    
+}
+
+.titleInput, .priorityInput, .dateInput, .submitTask{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(101, 109, 93, 0.4);
+}
+
+.title-warning, .date-warning, .projectAddWarning{
+    display: none;
+    margin-top: 0.2rem;
+    color: rgb(255, 0, 0);
+}
+.titleInput label, .priorityInput label, .dateInput label{
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
+
+.fill-details span{
+    font-size: 1.6rem;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    font-weight: 800;
+    border: 4px rgb(255, 0, 64) solid;
+    padding: 0 0.8rem;
+    color: rgb(255, 0, 64);
+    cursor: pointer;
+}
+
+.fill-details span:hover{
+    background: rgb(255, 0, 64);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+}
+
+.titleInput{
+    grid-area: titleInput;
+}
+
+.titleInput input, .priorityInput select, .dateInput input {
+    padding: 0.2rem 0.4rem;
+    width: 18em;
+}   
+
+.priorityInput{
+    grid-area: priorityInput;
+}   
+
+.dateInput{
+    grid-area: dateInput;
+}
+
+.submitTask{
+   
+    grid-area: submitTask;
+}
+
+.submitTask button{
+    padding: 0.6rem 3rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border: 2px rgb(89, 0, 255) solid;
+    transition: 0.3s;
+} 
+
+.submitTask button:hover{
+    color: #fff;
+    background: rgb(89, 0, 255);
+    border: 2px rgb(255, 255, 255) solid;;
+} 
+
+main{
+    grid-area: main;
+    background: #2940d3;
+    flex-direction: column;
+}
+
+.clickOnProject, .clickOnProject1{
+    position: relative;
+    font-size: 3.8rem;
+    width: 50%;
+    top: 20%;
+    left: 50%;
+    transform: translateY(-20%);
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    display: none;
+    z-index: 2;
+}
+
+.clkPr::after{
+    content: "";
+    top: 10vh;
+    bottom: 7vh;
+    right: 0;
+    left: 20vw;
+    position: absolute;
+    background: rgba(255, 0, 64, 1);
+    z-index: 1;
+}
+
+.tasks-unavailable{
+    color: #fff;
+    margin: auto;
+    font-size: 3rem;
+    display: none;
+}
+
+footer{
+    grid-area: footer;
+    background: #ffeda3;
+    justify-content: center;
+    align-items: center;
+    padding: 0.7rem;
+    z-index: 2;
+}
+
+footer p{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
