@@ -5,7 +5,7 @@ import {addTaskBtn, addTaskView, submitTask,
     createProject, removeCreateProject
 } from "./controller.js"
 
-import{createToDo, titleInput, deleteTodo, taskList, removeTaskFromToDos} from "./task"
+import{createToDo, titleInput, deleteTodo, taskList} from "./task"
 import{newProject, addProjectInput, navProjects, deleteProject, deleteProjectFromProjects} from "./projects.js"
 
 window.addEventListener('DOMContentLoaded', showProjects)
@@ -34,14 +34,7 @@ export const projects = [new Project('Default', [{title: "Go swimming", dueDate:
 export let projectNames = projects.map(obj => obj.name)
 export let projectTasks = projects.map(obj => obj.tasks)
 
-let projectItem = document.getElementsByClassName('project')
-console.log(projectItem);
-
-
-
 const projectFormInput = document.querySelector("#navigation form");
-
-
 
 export let isActive = "Default";
 
@@ -61,7 +54,6 @@ submitTask.addEventListener('click', e =>{
 
 taskList.addEventListener('click', e =>{
     deleteTodo(e);
-    //removeTaskFromToDos(e)
 })
 
 
@@ -72,10 +64,8 @@ addProject.addEventListener('click', ()=>{
         setTimeout(clearedWarning, 3000)
     }else{
         newProject();
-        addProjectInput.value = ""
-        console.log(projects)
+        addProjectInput.value = "";
     }
-   
 })
 
 
@@ -91,8 +81,7 @@ projectFormInput.addEventListener("keyup", e => {
             setTimeout(clearedWarning, 3000)
         }else{
             newProject();
-            addProjectInput.value = ""
-            console.log(projects)
+            addProjectInput.value = "";
         }
     }
 })
@@ -103,7 +92,6 @@ navProjects.addEventListener('click', e =>{
     if(e.target.classList.contains("project")){
         isActive = e.target.innerText;
         removeClickToCreateProject()
-        console.log(isActive)
         wipeMainContent()
         showTasks(e)
         removeCreateProject()
@@ -115,37 +103,8 @@ navProjects.addEventListener('click', e =>{
         clickToCreateProject()
         if(projects.length === 0){
             removeClickToCreateProject()
-            console.log("projects are ", projects)
             createProject()
-            //console.log(projects.length)
-            console.log(projects)
         }
     }
 })
 
-
-
-//FIND DUPLICATES IN AN ARRAY
-/*
-let numbers = [8, 1, 2, 1, 4, 4, 7, 8, 5, 5, 10, 7 ]
-let dups = []
-let uniqueNums = []
-
-numbers.forEach(el=>{
-        
-        if(uniqueNums.includes(el)){
-            dups.push(el);
-        }else{
-            uniqueNums.push(el);
-        }
-})
-
-console.log(dups)
-console.log(uniqueNums)
-*/
-
-
-//FIGURE OUT HOW TO MAKE A PROJECT ACTIVE
-// WHEN A PROJECT IS ACTIVE 
-// WHEN YOU ADD TASKS
-// TASKS GET ADDED TO THE PROJECT TASKS 

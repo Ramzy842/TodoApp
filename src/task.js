@@ -22,7 +22,6 @@ const createToDo = i=>{
     `
     let newToDo = new Todo(titleInput.value, dueDateInput.value)
     toDos.push(newToDo);
-    console.log(toDos)
     taskList.appendChild(taskListItem)
     taskUnavailabe.style.display = "none"
     
@@ -37,9 +36,7 @@ const createToDo = i=>{
     //send task to active Project
     for (let index = 0; index < projects.length; index++) {
         if(projects[index].name === isActive){
-            console.log(projects[index].name, 'is found')
             projects[index].tasks.push(newToDo);
-            console.log(projects)
         }    
     }
     
@@ -50,34 +47,23 @@ const deleteTodo = i => {
         
         i.target.parentElement.parentElement.remove();
         removeTaskFromToDos(i)
-        //console.log(projectTasks)
-        //console.log(projects)
     }
 }
 
 export const removeTaskFromToDos = (i) =>{
     let parentEl = i.target.parentElement.parentElement;
-    
-    /*const mappedArr = projectTasks.map(el =>{
-       return el.map(e=>{
-           return e.title;
-       })
-    })*/
 
     const mappedArr = projects.map(project=>{
         return project.tasks.map(task=>{
             return task.title
         })
     })
-
-    console.log("this is mappedArr:" ,mappedArr)
    
     if(mappedArr.some(arr=> arr.includes(parentEl.children[0].innerText))){
        
         toDos.some(todo=>{
            if(todo.title === parentEl.children[0].innerText){
                toDos.splice(toDos.indexOf(todo), 1)
-               console.log(toDos)
            }
         })
 
@@ -85,10 +71,6 @@ export const removeTaskFromToDos = (i) =>{
            project.tasks.some(task=>{
             if(task.title === parentEl.children[0].innerText){
                 project.tasks.splice(project.tasks.indexOf(task), 1)
-                console.log("You Just deleted" , parentEl.children[0].innerText);
-                console.log("this is the project:", project)
-                console.log("this is the projects:", projects)
-                console.log(isActive, "is active")
             }
             })
         })
@@ -97,11 +79,7 @@ export const removeTaskFromToDos = (i) =>{
    
 }
 
-//the problem is I am getting 
 
-export const taskCompleted = i=>{
-    i.classList.toggle('completed')
-} 
 
 export{
     createToDo,

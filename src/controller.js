@@ -18,12 +18,6 @@ const clickOnProject1 = document.querySelector(".clickOnProject1")
 export const addProject = document.querySelector('.nav-head span');
 
 
-taskList.addEventListener("click", (e)=>{
-    if(e.target.parentElement.classList.contains('task')){
-        e.target.parentElement.classList.toggle('completed');
-    }
-})
-
 const addTaskView = ()=>{
     overlay.classList.add('overlay')
     document.querySelector('body').appendChild(overlay)
@@ -118,12 +112,10 @@ const showTasks = i =>{
                 taskUnavailabe.style.display = 'none'
             })
         } catch (error) {
-            console.log('no tasks available');
             taskUnavailabe.style.display = 'block'
         }  
     }else{
-        console.log('no tasks available');
-            taskUnavailabe.style.display = 'block'
+        taskUnavailabe.style.display = 'block'
     }
     
 }
@@ -145,6 +137,7 @@ export const createProject = ()=>{
 
 export const removeCreateProject = ()=>{
     taskList.classList.remove("clkPr");
+    //taskUnavailabe.style.display = 'none'
     clickOnProject1.style.display = "none"
 }
 

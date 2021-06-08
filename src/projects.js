@@ -1,4 +1,5 @@
 import {projects, Project, projectNames} from "./index.js"
+import {taskUnavailabe} from "./controller.js"
 export const navProjects = document.querySelector('#navigation ul')
 export const addProjectInput = document.querySelector('#addProject')
 
@@ -23,7 +24,8 @@ export const newProject = () =>{
 }
 
 export const deleteProject = i =>{
-        i.target.parentElement.remove()   
+        i.target.parentElement.remove()
+        taskUnavailabe.style.display = 'none'   
 }
 
 export const deleteProjectFromProjects = i =>{
@@ -31,10 +33,8 @@ export const deleteProjectFromProjects = i =>{
 
     projects.forEach(project=>{
         if(project.name === parentEl.children[0].innerText){
-            //console.log('found', project.name, 'in projects')
             projects.splice(projects.indexOf(project), 1);
             projectNames.splice(projectNames.indexOf(project.name), 1)
-            //console.log(projects)
         }
     })
         
