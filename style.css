@@ -317,7 +317,7 @@ main{
     right: 0;
     left: 20vw;
     position: absolute;
-    background: rgba(255, 0, 64, 1);
+    background: linear-gradient(to top right, rgb(255, 0, 64), #6900cc);
     z-index: 1;
 }
 
