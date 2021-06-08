@@ -1,4 +1,4 @@
-import {projects, Project, projectNames} from "./index.js"
+import {projects, Project, projectNames, storeProjects} from "./index.js"
 import {taskUnavailabe} from "./controller.js"
 export const navProjects = document.querySelector('#navigation ul')
 export const addProjectInput = document.querySelector('#addProject')
@@ -21,6 +21,7 @@ export const newProject = () =>{
     let newPr = new Project(`${newProjectFolder.innerText}`, [])
     projects.push(newPr)
     projectNames.push(addProjectInput.value)
+    
 }
 
 export const deleteProject = i =>{

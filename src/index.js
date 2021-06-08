@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', showProjects)
 window.addEventListener('DOMContentLoaded', showDefaultTasks)
 
 
+
 export default class Todo{
     constructor(title, dueDate){
         this.title = title;
@@ -26,11 +27,13 @@ export class Project{
         this.tasks = tasks;
     }
 }
+
 export const toDos = [];
 
 
 export const projects = [new Project('Default', [{title: "Go swimming", dueDate: "2021-5-31"}, {title: "Workout", dueDate: "2021-5-31"}]),
         new Project('other', [{title: "sleep", dueDate: "2021-5-31"}, {title: "drive", dueDate: "2021-5-31"}, {title: "Study", dueDate: "2021-5-31"}])];
+
 export let projectNames = projects.map(obj => obj.name)
 export let projectTasks = projects.map(obj => obj.tasks)
 
