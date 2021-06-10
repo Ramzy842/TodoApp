@@ -387,7 +387,7 @@ footer a img:hover{
         left: 0;
         position: absolute;
         background: linear-gradient(to top right, rgb(255, 0, 64), #6900cc);
-        z-index: 0;
+        z-index: 1;
     }
 
     .clickOnProject, .clickOnProject1{
