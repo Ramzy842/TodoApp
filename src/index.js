@@ -37,8 +37,10 @@ export const projects = [new Project('Default', [{title: "Go swimming", dueDate:
 export let projectNames = projects.map(obj => obj.name)
 export let projectTasks = projects.map(obj => obj.tasks)
 
-const projectFormInput = document.querySelector("#navigation form");
 
+
+
+const projectFormInput = document.querySelector("#navigation form");
 export let isActive = "Default";
 
 addTaskBtn.addEventListener('click', addTaskView)
