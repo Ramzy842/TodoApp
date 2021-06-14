@@ -409,6 +409,29 @@ footer a img:hover{
         width: 70vw;
     }
 
+
+    
+    .fill-details form{
+        margin-top: 2rem;
+       height: 100%;
+       display: grid;
+       justify-items: center;
+       align-items: center;
+       
+       grid-template-rows: 1fr 1fr 1fr;
+       grid-template-areas: "titleInput titleInput"
+                            "dateInput dateInput"
+                            "submitTask submitTask";
+        
+    }
+    .fill-details span{
+        font-size: 1rem;
+        right: 3%;
+    }
+    .submitTask button{
+        padding: 0.3rem 3rem;
+        margin-bottom: 2rem;
+    } 
     footer p{
         font-size: 1rem;
     }
